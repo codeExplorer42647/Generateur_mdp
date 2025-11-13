@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Générateur de mots de passe</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Générateur de mots de passe</h1>
+        <p>
+          Choisissez les critères qui vous conviennent, puis générez un mot de
+          passe aléatoire et consultez instantanément son niveau de robustesse.
+        </p>
+      </header>
+
+      <form id="generator-form" class="card" novalidate>
+        <fieldset class="field">
+          <label for="length">Longueur du mot de passe</label>
+          <div class="length-input">
+            <input
+              id="length"
+              name="length"
+              type="number"
+              min="4"
+              max="128"
+              value="16"
+              required
+            />
+            <span class="hint">Entre 4 et 128 caractères</span>
+          </div>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Types de caractères</legend>
+          <label class="checkbox">
+            <input type="checkbox" name="use-lower" checked />
+            <span>Lettres minuscules</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="use-upper" checked />
+            <span>Lettres majuscules</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="use-digits" checked />
+            <span>Chiffres</span>
+          </label>
+          <label class="checkbox">
+            <input type="checkbox" name="use-symbols" checked />
+            <span>Symboles</span>
+          </label>
+          <p class="hint">Sélectionnez au moins un type de caractère.</p>
+        </fieldset>
+
+        <button type="submit" class="primary">Générer un mot de passe</button>
+        <p id="form-error" class="error" role="alert" hidden></p>
+      </form>
+
+      <section id="result" class="card" hidden aria-live="polite">
+        <h2>Résultat</h2>
+        <div class="password-output">
+          <output id="password-value" class="password" for="length"></output>
+          <button id="copy-password" type="button" class="secondary">Copier</button>
+        </div>
+        <dl class="metrics">
+          <div>
+            <dt>Longueur</dt>
+            <dd id="password-length">0 caractère</dd>
+          </div>
+          <div>
+            <dt>Entropie estimée</dt>
+            <dd id="password-entropy">0 bit</dd>
+          </div>
+          <div>
+            <dt>Robustesse</dt>
+            <dd id="password-strength">—</dd>
+          </div>
+        </dl>
+        <p id="copy-feedback" class="hint" role="status"></p>
+      </section>
+    </main>
+
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>
