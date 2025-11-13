@@ -16,7 +16,25 @@ python -m venv .venv
 source .venv/bin/activate  # Sous Windows : .venv\\Scripts\\activate
 ```
 
-## Utilisation
+## Utilisation en ligne
+
+Le dépôt contient une application Web statique (`index.html`) qui peut être servie
+directement par GitHub Pages.
+
+1. Dans GitHub, ouvrez **Settings &gt; Pages**.
+2. Dans la section **Build and deployment**, choisissez la branche `main` et le dossier
+   `/(root)` puis cliquez sur **Save**.
+3. GitHub fournira un lien du type `https://<votre-utilisateur>.github.io/Generateur_mdp/`.
+4. Rendez-vous sur ce lien pour générer des mots de passe en ligne sans rien installer.
+
+L’interface propose :
+
+- la saisie de la longueur (entre 4 et 128 caractères) ;
+- la sélection des jeux de caractères (minuscules, majuscules, chiffres, symboles) ;
+- la copie rapide du mot de passe généré ;
+- l’affichage de sa longueur, de l’entropie estimée et d’un indicateur de robustesse.
+
+## Utilisation en ligne de commande
 
 1. Placez-vous dans le dossier du projet.
 2. Exécutez le script en précisant, si besoin, la longueur désirée et les types de
